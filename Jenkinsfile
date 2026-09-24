@@ -62,7 +62,7 @@ pipeline {
             steps{
                 sh'''
                     npm install serve
-                    workspaces/learn-jenkins-app/node_modules/.bin/serve -s build & sleep 10
+                    /workspaces/learn-jenkins-app/node_modules/.bin/serve -s build & sleep 10
                     npx playwright test --reporter=html
                     '''
                 }
@@ -85,10 +85,12 @@ stage('Deploy') {
             steps {
                 sh '''
                     npm install netlify-cli
-                    workspaces/learn-jenkins-app/node_modules/.bin/netlify --version
+                    /workspaces/learn-jenkins-app/node_modules/.bin/netlify --version
                     echo "Deploying to production. Site ID: 13847aa7-0cb0-475c-9209-8597d7b5e365"
                 '''
             }
         }
     }
 }
+
+
