@@ -86,7 +86,7 @@ stage('Deploy') {
                 sh '''
                     npm install netlify-cli
                     workspaces/learn-jenkins-app/node_modules/.bin/netlify --version
-                    echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
+                    echo "Deploying to production. Site ID: 13847aa7-0cb0-475c-9209-8597d7b5e365"
                 '''
             }
         }
