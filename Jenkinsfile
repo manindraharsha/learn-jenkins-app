@@ -8,7 +8,7 @@ pipeline {
 
     stages {
 
-        stage('Build') {
+        /*stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -92,7 +92,7 @@ pipeline {
                     node_modules/.bin/netlify deploy --dir=build
                 '''
             }
-        }
+        }*/
 
         stage('Deploy') {
             agent {
