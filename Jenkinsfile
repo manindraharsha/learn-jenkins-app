@@ -103,6 +103,7 @@ pipeline {
 
                 }
             }
+        }
         
         stage('Deploy') {
             agent {
