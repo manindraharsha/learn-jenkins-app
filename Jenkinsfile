@@ -98,7 +98,11 @@ pipeline {
 
         stage('Approval'){
             agent{
-                input message: '', ok: 'Yes, Deploy'
+                steps{
+                    timeout(time: 15, unit: 'MINUTES') 
+                    input message: '', ok: 'Yes, Deploy'
+
+                }
             }
         }
 
