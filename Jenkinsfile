@@ -96,7 +96,7 @@ pipeline {
             }
         }
 
-        stage{
+        stage('Approval'){
             agent{
                 input message: '', ok: 'Yes, Deploy'
             }
