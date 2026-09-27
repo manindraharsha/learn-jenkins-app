@@ -97,15 +97,13 @@ pipeline {
         }
 
         stage('Approval'){
-            agent{
-                steps{
+            steps{
                     timeout(time: 15, unit: 'MINUTES') 
                     input message: '', ok: 'Yes, Deploy'
 
                 }
             }
-        }
-
+        
         stage('Deploy') {
             agent {
                 docker {
