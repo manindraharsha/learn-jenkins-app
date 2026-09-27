@@ -96,6 +96,12 @@ pipeline {
             }
         }
 
+        stage{
+            agent{
+                input message: '', ok: 'Yes, Deploy'
+            }
+        }
+
         stage('Deploy') {
             agent {
                 docker {
