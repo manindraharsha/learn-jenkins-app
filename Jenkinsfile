@@ -121,9 +121,7 @@ pipeline {
                 }
             }
 
-            environment {
-                CI_ENVIRONMENT_URL = 'https://tubular-malabi-0b69f6.netlify.app/'
-            }
+            
 
             steps {
                 sh '''
