@@ -114,7 +114,7 @@ pipeline {
 
             steps {
                 sh '''
-                    npx playwright test  --reporter=html
+                    npx playwright test --reporter=html
                 '''
             }
 
@@ -125,16 +125,7 @@ pipeline {
             }
         }
 
-        stage('Approval'){
-            steps{
-                    timeout(time: 15, unit: 'MINUTES') 
-                    {
-                        input message: '', ok: 'Yes, Deploy'
-
-                }
-            }
-        }
-        
+           
         stage('Deploy Prod') {
             agent {
                 docker {
@@ -175,7 +166,7 @@ pipeline {
                 always {
                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'Prod E2E Report', reportTitles: '', useWrapperFileDirectly: true])
                         }
-            }
+                }
         }
         
     }
