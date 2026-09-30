@@ -90,8 +90,6 @@ pipeline {
                 }
             }
 
-             
-
             steps {
                 sh '''
                     netlify --version
@@ -103,7 +101,8 @@ pipeline {
                                    
                 '''
             }
-                post {
+            
+            post {
                 always {
                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'Staging E2E Report', reportTitles: '', useWrapperFileDirectly: true])
                     }
@@ -121,7 +120,7 @@ pipeline {
 
             environment {
                 CI_ENVIRONMENT_URL = 'https://tubular-malabi-0b69f6.netlify.app/'
-             }
+            }
 
             steps {
                 sh '''
@@ -132,7 +131,7 @@ pipeline {
                     netlify deploy --dir=build --prod
                     npx playwright test  --reporter=html
                 '''             
-                }
+            }
 
             post {
                 always {
